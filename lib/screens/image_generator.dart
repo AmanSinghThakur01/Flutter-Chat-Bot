@@ -40,6 +40,31 @@ class _AitexttoImageGeneratorState extends State<AitexttoImageGenerator> {
         backgroundColor: Colors.transparent,
         elevation: 0,
       ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+                decoration: BoxDecoration(
+                  color: Colors.teal
+                ),
+                child: Text("Header"),
+            ),
+            ListTile(
+              title: Text('Item 1'),
+              onTap: () {
+                // Handle item tap
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // Handle item tap
+              },
+            ),
+          ],
+        ),
+      ),
       body: Container(
         width: double.infinity,
         height: double.infinity,
