@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bot/constants/constants.dart';
 import 'package:flutter_chat_bot/screens/chat_screen.dart';
+import 'package:flutter_chat_bot/widgets/chat_widget.dart';
 
 import 'screens/image_generator.dart';
 

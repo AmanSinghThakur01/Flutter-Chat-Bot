@@ -1,6 +1,12 @@
+import 'dart:developer';
+
 import 'package:flutter/material.dart';
 import 'package:flutter_chat_bot/constants/constants.dart';
+import 'package:flutter_chat_bot/services/services.dart';
+import 'package:flutter_chat_bot/widgets/chat_widget.dart';
+import 'package:flutter_chat_bot/widgets/text_widget.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+
 
 
 import '../services/assets_manager.dart';
@@ -30,7 +36,9 @@ class _ChatScreenState extends State<ChatScreen> {
       backgroundColor: ScaffoldBackgroundColor,
       appBar: AppBar(
         actions: [
-          IconButton(onPressed: (){}, icon: Icon(Icons.more_vert_rounded, color: Colors.white,))
+          IconButton(onPressed: () async{
+await Services.showModelSheet(context : context);
+          }, icon: Icon(Icons.more_vert_rounded, color: Colors.white,))
         ],
         elevation: 2,
         leading: Padding(
@@ -54,21 +62,16 @@ class _ChatScreenState extends State<ChatScreen> {
             child: ListView.builder(
                 itemCount: 6,
                 itemBuilder:(context , index ){
-                  return Padding(
-                    padding: const EdgeInsets.all(8),
-                    child: Text("hello this is a text",
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 18,
-                    ),
-                    ),
+                  return  ChatWidget(
+                    msg: chatMessages[index]["msg"].toString(),
+                    chatIndex: int.parse(chatMessages[index]["chatIndex"].toString()),
                   );
                 } ),
           ),
         if (_isTyping)...[
-          SpinKitPouringHourGlassRefined(
+          SpinKitThreeBounce(
             color: Colors.brown[200]!,
-            size: 45,
+            size: 25,
           ),
 SizedBox(
   height: 15,
